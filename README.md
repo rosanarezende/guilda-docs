@@ -69,7 +69,12 @@ Este repositório apresenta o produto. O código do aplicativo e do motor perman
 
 ## Documentação pública e distribuição
 
-O `guilda-docs` é a porta de entrada pública da Guilda. Hoje reúne esta apresentação; schemas e exemplos de registros ainda não foram publicados aqui.
+O `guilda-docs` é a porta de entrada pública da Guilda. Além desta apresentação, você pode explorar:
+
+- [Como a Guilda é construída](docs/arquitetura.md): responsabilidades, tecnologias, limites e custos das escolhas de arquitetura.
+- [Exemplo de primeiro valor](examples/primeiro-valor.md): um cenário fictício que conecta contexto, decisão, plano, evidências e medição.
+
+Schemas e exemplos de registros YAML/JSON ainda não foram publicados aqui.
 
 A proposta de distribuição prevê uso pessoal gratuito e modalidades comerciais para organizações. As condições de uso, o escopo dos formatos públicos e eventual acesso empresarial ao código precisam ser formalizados em licenças próprias. Esta apresentação não substitui esses termos nem anuncia modalidades já disponíveis para contratação.
 
