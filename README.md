@@ -10,7 +10,7 @@ A Guilda é um produto em desenvolvimento para conectar **objetivos de negócio,
 
 ![Visão conceitual da Guilda: objetivos orientam a decisão humana e a coordenação entre fontes; evidências e resultados retornam à direção.](assets/guilda-ciclo.png)
 
-*Ilustração conceitual criada com assistência de IA. O ciclo representa a visão do produto; não é uma captura do aplicativo nem uma indicação de que todas as etapas já estão disponíveis.*
+*As ilustrações conceituais foram criadas com assistência de IA e representam a visão do produto. A seção sobre o estágio atual distingue as capacidades existentes das jornadas em construção.*
 
 ## O contexto precisa sobreviver à execução
 
@@ -35,13 +35,19 @@ A visão do produto conecta três níveis:
 
 Essa organização se aplica tanto a uma pessoa conduzindo seu projeto quanto a times trabalhando em vários repositórios. A profundidade dos registros acompanha o contexto; os níveis não exigem departamentos separados.
 
+![Níveis estratégico, tático e operacional: objetivos e alternativas orientam a decisão humana, o plano e as entregas; resultados observados informam a direção.](assets/guilda-niveis.png)
+
 **Um exemplo:** um time quer reduzir o tempo até uma pessoa perceber valor no produto. Antes de decidir construir um novo fluxo, examina o que já existe, identifica dependências e compara caminhos. A escolha orienta as entregas de experiência, implementação e instrumentação. Depois, o time confere o funcionamento e observa a métrica no período definido para decidir se mantém ou revê a aposta.
+
+![Exemplo de rastreabilidade: do objetivo de reduzir o tempo até o primeiro valor ao plano, à entrega e à evidência; o resultado observado tem fonte e período próprios.](assets/guilda-rastreabilidade.png)
 
 **Concluir as entregas não significa atingir a meta.** O resultado precisa de observação, fonte e interpretação; sua relação com a iniciativa não comprova causalidade por si só.
 
 ## Cup: assistência com contexto, revisão humana
 
 O **Cup** é o assistente contextual da Guilda. Ele ajuda a entender campos, organizar perguntas, consultar informações permitidas e preparar propostas editáveis.
+
+![Cup usa contexto permitido para preparar uma proposta editável; a revisão e a decisão pertencem à pessoa, com uso opcional de IA.](assets/guilda-cup.png)
 
 Na descoberta de um repositório, por exemplo, a assistência pode propor uma descrição e possíveis capacidades a partir das fontes selecionadas. A pessoa precisa poder conferir o contexto que será enviado, revisar as referências e corrigir a proposta. **Uma descrição inferida de arquivos não comprova que a capacidade funciona.**
 
