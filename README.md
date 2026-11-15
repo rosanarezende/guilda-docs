@@ -1,124 +1,76 @@
 # Guilda
 
+### Contexto, decisões e evidências conectados ao trabalho
+
 **Pessoas decidem. O sistema apoia.**
 
-A **Guilda** é um produto *local-first* de governança de trabalho e decisão que conecta objetivos de negócio ao que os repositórios de um workspace realmente oferecem e precisam.
+A Guilda é um produto em desenvolvimento para conectar **objetivos de negócio, conhecimento dos repositórios, decisões humanas e entregas**. Sua proposta é ajudar produto, lideranças e engenharia a entender o que vale fazer, coordenar quem precisa participar e conferir o que mudou depois da execução.
 
-Em vez de tratar governança como burocracia ou prender o conhecimento do time em um SaaS fechado, a Guilda estrutura a relação entre estratégia, contexto técnico, deliberação humana e evidências verificáveis — mantendo os registros oficiais sob controle de quem usa, versionados em Git.
+[Conheça o site e as telas do produto](https://guilda.pages.dev)
 
-> **Site oficial e visão do fluxo:** [guilda.pages.dev](https://guilda.pages.dev)
+![Visão conceitual da Guilda: objetivos orientam a decisão humana e a coordenação entre fontes; evidências e resultados retornam à direção.](assets/guilda-ciclo.png)
 
----
+*Ilustração conceitual criada com assistência de IA. O ciclo representa a visão do produto; não é uma captura do aplicativo nem uma indicação de que todas as etapas já estão disponíveis.*
 
-## Por que a Guilda existe
+## O contexto precisa sobreviver à execução
 
-Mesmo quando equipes implementam código mais rápido com apoio de Inteligência Artificial, produto, liderança e engenharia continuam precisando responder a perguntas críticas antes e depois da entrega:
+Uma iniciativa nasce numa conversa, passa por documentos e tarefas e chega ao código. Na retomada, pode ser difícil encontrar o motivo da escolha, uma dependência de outro time ou a evidência do resultado. Acelerar a implementação com IA torna essas perguntas ainda mais relevantes:
 
-- **Contexto:** Já existe alguma capacidade nos nossos repositórios que atende parte desta necessidade? Qual time responde por ela?
-- **Maturidade:** Essa capacidade está disponível em produção, planejada ou apenas descrita em documentação?
-- **Dependências:** O que depende de outros repositórios ou precisa ser investigado antes de assumir um prazo?
-- **Decisão:** Por que escolhemos esta alternativa e descartamos outras?
-- **Comprovação:** A entrega técnica terminou, mas há evidência de funcionamento e resultado observado de negócio?
+- **O que já existe?** Que capacidades podemos reutilizar e quem responde por elas?
+- **O que falta saber?** Quais dependências, riscos e dúvidas precisam ser examinados?
+- **Por que esse caminho?** Quem escolheu a alternativa, com quais referências e limites?
+- **O que mudou?** A entrega funciona? O efeito esperado no negócio foi observado?
 
-A Guilda organiza esse ciclo de ponta a ponta para apoiar **stakeholders, gestores, produto e engenharia**, usando IA como assistência contextual revisável — nunca como substituta da autoridade humana.
+A Guilda organiza as relações entre essas respostas para que a direção acompanhe o trabalho e as evidências possam informar a próxima decisão.
 
----
+## Da estratégia à execução — e de volta à decisão
 
-## O Ciclo de Negócio e o Grafo Declarativo
+A visão do produto conecta três níveis:
 
-A Guilda separa responsabilidades ao longo do ciclo de vida de uma iniciativa:
+| Nível | O que ajuda a compreender |
+| --- | --- |
+| **Estratégico** | Que problema merece atenção, qual efeito se espera e que alternativas considerar. |
+| **Tático** | Como transformar a escolha num plano, com responsáveis, dependências e condições para avançar. |
+| **Operacional** | O que precisa ser entregue, quais provas sustentam a entrega e o que os resultados permitem aprender. |
 
-```text
-Objetivo de negócio
-        │
-        ▼
-Contexto e capacidades dos repositórios
-        │
-        ▼
-[ Intent ] ────────► Direção autorizada, propósito e métricas
-        │
-        ▼
-[ Breakdown ] ─────► Grafo revisionado de fases, critérios de saída e dependências
-        │
-        ▼
-[ Work ] ──────────► Entrega materializada na raiz responsável:
-        │            • brief.yml (escopo e promessa técnica)
-        │            • state.yml (ciclo de vida e checkpoints)
-        │            • dispatches.yml (decisões e deliberações humanas — QRDs)
-        │            • evidence/ (provas físicas e duráveis da entrega)
-        ▼
-[ Outcome ] ───────► Observação posterior dos resultados e revisão da aposta
-```
+Essa organização se aplica tanto a uma pessoa conduzindo seu projeto quanto a times trabalhando em vários repositórios. A profundidade dos registros acompanha o contexto; os níveis não exigem departamentos separados.
 
-### Princípios Fundamentais
+**Um exemplo:** um time quer reduzir o tempo até uma pessoa perceber valor no produto. Antes de decidir construir um novo fluxo, examina o que já existe, identifica dependências e compara caminhos. A escolha orienta as entregas de experiência, implementação e instrumentação. Depois, o time confere o funcionamento e observa a métrica no período definido para decidir se mantém ou revê a aposta.
 
-1. **Uma fonte responsável para cada informação:** Quadros e mapas são projeções derivadas dos registros canônicos — não existem múltiplas versões concorrentes do progresso.
-2. **Proposta não é decisão:** Sugestões geradas por assistência de IA (como o assistente contextual **Cup**) permanecem rascunhos revisáveis; nenhuma IA concede permissão, autoriza trabalho ou aprova entregas sozinha.
-3. **Separação entre código, registros e dispositivo:** Os registros compartilhados de governança vivem versionados em Git; caminhos locais, preferências e credenciais permanecem privados no dispositivo do usuário.
-4. **Duas escalas de adoção:**
-   - **Modo Compacto (`_governance`):** Governança local para uso individual ou pequenos grupos em um repositório.
-   - **Workspace Central (`_governance-workspace`):** Coordenação multi-repositório com mapeamento de dependências entre domínios e resolução situada de autoridade (*Authority*).
+**Concluir as entregas não significa atingir a meta.** O resultado precisa de observação, fonte e interpretação; sua relação com a iniciativa não comprova causalidade por si só.
 
----
+## Cup: assistência com contexto, revisão humana
 
-## Arquitetura das Quatro Responsabilidades
+O **Cup** é o assistente contextual da Guilda. Ele ajuda a entender campos, organizar perguntas, consultar informações permitidas e preparar propostas editáveis.
 
-A engenharia da Guilda é estruturada para garantir que regras de negócio, contratos e autoridade nunca fiquem acoplados à interface visual:
+Na descoberta de um repositório, por exemplo, a assistência pode propor uma descrição e possíveis capacidades a partir das fontes selecionadas. A pessoa precisa poder conferir o contexto que será enviado, revisar as referências e corrigir a proposta. **Uma descrição inferida de arquivos não comprova que a capacidade funciona.**
 
-```text
-┌─────────────────────────────────────────────────────────┐
-│                     Guilda Kernel                       │
-│   Conceitos, ontologia, regras e contratos puros        │
-│   (YAML ──► Zod ──► TypeScript & JSON Schema)           │
-└────────────────────────────┬────────────────────────────┘
-                             │
-                             ▼
-┌─────────────────────────────────────────────────────────┐
-│                    Guilda Framework                     │
-│   Capacidades públicas e Ports & Adapters reutilizáveis │
-└──────────────┬───────────────────────────┬──────────────┘
-               │                           │
-               ▼                           ▼
-┌────────────────────────────┐ ┌──────────────────────────┐
-│        Guilda Flow         │ │    Guilda Governance     │
-│   CLI para terminal e      │ │  App Desktop local-first │
-│   automação operacional    │ │  (React, TS, Tauri/Rust) │
-└────────────────────────────┘ └──────────────────────────┘
-```
+O fluxo manual permanece disponível. Usar IA é opcional, com conexões locais ou remotas configuradas pela pessoa. Publicar informações, autorizar uma direção e aprovar uma entrega são atos distintos, exercidos por quem tem os poderes correspondentes.
 
-- **Kernel:** Define o significado comum das entidades (*Intent*, *Breakdown*, *Work*, *Authority*, *Evidence*, *Outcome*) e gera schemas tipados para diferentes linguagens.
-- **Framework:** Implementa as operações públicas e isola regras de domínio dos efeitos de sistema de arquivos, Git e cofres de credenciais nativos.
-- **Flow & Governance Desktop:** São consumidores irmãos do Framework — o aplicativo desktop oferece experiência visual sem depender da CLI como backend.
+## Registros sob controle de quem trabalha
 
----
+A Guilda prioriza a operação no computador, com registros em arquivos versionados por Git. Quadros e mapas apresentam informações derivadas das fontes responsáveis. Caminhos locais, preferências e credenciais ficam separados dos registros compartilhados.
 
-## Estado Atual do Projeto
+A arquitetura separa regras comuns, capacidades reutilizáveis e interfaces. O aplicativo desktop e a ferramenta de terminal consomem as mesmas capacidades públicas; o aplicativo tem composição nativa própria. Essa separação também mantém as integrações desacopladas da regra de negócio.
 
-A Guilda é um produto autoral em desenvolvimento ativo (com foco inicial em **Windows** e **Linux**):
+## O que existe hoje e o que está em construção
 
-- **Capacidades já integradas na base:** Cadastro e reabertura de iniciativas no aplicativo, preparação assistida e revisável de direção e plano (**Cup**), consulta e publicação de descrições oficiais dos repositórios, resolução situada de autoridade e protocolo de publicação recuperável em arquivos.
-- **Frentes em evolução:** Consolidação da jornada conjunta de compreensão do workspace, comparação de prioridades entre iniciativas e acompanhamento completo de resultados (*outcomes*).
-- **Origem:** Evoluiu a partir da investigação de governança de engenharia iniciada no framework open-source [ai-guidelines](https://github.com/rosanarezende/ai-guidelines).
+A base já reúne cadastro e reabertura de iniciativas, consulta e publicação de informações dos repositórios e preparação de direção e plano com assistência revisável. Há demonstrações em cenários controlados e desenvolvimento para **Windows e Linux**.
 
----
+A evolução amplia essa base em cinco jornadas: compreender os repositórios e suas relações; explicitar propósito e medição; comparar alternativas; planejar entre responsáveis; observar resultados e rever a direção. **Essas jornadas ainda não constituem um ciclo integral entregue.** Comparação de prioridades e acompanhamento completo dos resultados permanecem em construção.
 
-## Modelo de Ecossistema e Licenciamento
+Este repositório apresenta o produto. O código do aplicativo e do motor permanece privado, e ainda não há instaladores publicados para uso geral.
 
-A Guilda adota o modelo **Open-Format & Local-First** combinado com distribuição proprietária:
+## Documentação pública e distribuição
 
-- **Formato Aberto (*Open-Format*):** Os schemas, contratos de dados e a documentação técnica reunidos neste repositório (`guilda-docs`) são abertos para assegurar transparência, auditabilidade e **zero *vendor lock-in*** — seus registros no Git permanecem legíveis e sob seu controle independentemente do aplicativo.
-- **Aplicação e Motor (*Proprietary Binaries*):** O motor de execução e o aplicativo desktop são desenvolvidos em repositório privado e serão distribuídos como binários compilados:
-  - **Uso Individual (PF) e Modo Compacto:** Gratuito para uso pessoal, estudos e pequenos grupos colaborando via Git.
-  - **Uso Corporativo (PJ) e Multi-Repositório:** Licenciamento comercial voltado a equipes e organizações, sem exigir hospedagem de dados em SaaS externo.
-  - **Enterprise Source License:** Disponível sob contrato específico para empresas que precisem auditar ou adaptar o código-fonte internamente.
+O `guilda-docs` é a porta de entrada pública da Guilda. Hoje reúne esta apresentação; schemas e exemplos de registros ainda não foram publicados aqui.
 
----
+A proposta de distribuição prevê uso pessoal gratuito e modalidades comerciais para organizações. As condições de uso, o escopo dos formatos públicos e eventual acesso empresarial ao código precisam ser formalizados em licenças próprias. Esta apresentação não substitui esses termos nem anuncia modalidades já disponíveis para contratação.
 
-## Autoria e Contato
+## Autoria e contato
 
-Idealizado e mantido por **Rosana Rezende** — Engenheira de Software com experiência em Full Stack, Growth Engineering (PLG) e Governança de IA, além de trajetória prévia de 10 anos no Direito Corporativo e MBA em Negócios Digitais pela FGV.
+Criada por **Rosana Rezende**, reunindo experiência em engenharia de software, produto, experimentação e negócios. A direção de produto, as decisões arquiteturais e a avaliação das entregas são humanas, com assistência de IA na construção.
 
-- **Produto:** [guilda.pages.dev](https://guilda.pages.dev)
-- **Projeto irmão (Open Source):** [github.com/rosanarezende/ai-guidelines](https://github.com/rosanarezende/ai-guidelines)
-- **Portfólio:** [rosanarezende.com](https://rosanarezende.com)
-- **LinkedIn:** [linkedin.com/in/rosanarezende](https://linkedin.com/in/rosanarezende)
+A investigação começou no [ai-guidelines](https://github.com/rosanarezende/ai-guidelines), contribuição anterior em código aberto. O foco atual de desenvolvimento é a Guilda.
+
+[Site e apresentação](https://guilda.pages.dev) · [Perfil no GitHub](https://github.com/rosanarezende) · [LinkedIn](https://www.linkedin.com/in/rosanarezende/) · [Portfólio](https://rosanarezende.com)
