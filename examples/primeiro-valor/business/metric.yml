@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/metric-definition.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: metric-definition
+schemaVersion: guilda.governance/v1
+metadata:
+  id: tempo-primeiro-valor
+  revision: 1
+  unit: duration-ms
+  source-type: manual-audit
+  aggregation-type: average
+  measurement-procedure: Ler observations.csv, conferir duration_ms pela diferença entre
+    first_value_at e registered_at e calcular a média de cada cohort. Usar três clientes sintéticos
+    com observação completa por grupo. A média baseline é a situação inicial; a média follow-up é o
+    valor observado. Contas de teste e observação incompleta seriam excluídas num estudo real. Este
+    CSV é inteiramente fictício e não permite inferência causal.
+  metric-owner: pessoa-responsavel-acme

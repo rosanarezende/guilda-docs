@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/outcome.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: outcome-record
+schemaVersion: guilda.governance/v1
+metadata:
+  id: resultado-primeiro-valor
+  revision: 1
+  created-at: 2026-11-15T12:00:00.000Z
+  owner: pessoa-responsavel-acme
+observation:
+  value: 345600000
+  observed-at: 2026-11-15T12:00:00.000Z
+  actual-attesters:
+    - pessoa-responsavel-acme
+target-ref:
+  namespace: acme-example
+  kind: business-target
+  id: primeiro-valor-em-tres-dias
+  revision: "1"
+evidence-links:
+  - evidence-ref:
+      namespace: acme-example
+      kind: evidence-record
+      id: observacao-primeiro-valor
+      revision: sha256:78f2b82ce5fd517208790d8641bbc7881fef995290ddc59cbc0c84e5df01a0b7
+source-revisions:
+  - namespace: acme-example
+    kind: metric-definition
+    id: tempo-primeiro-valor
+    revision: "1"
+  - namespace: acme-example
+    kind: evidence-record
+    id: observacao-primeiro-valor
+    revision: sha256:78f2b82ce5fd517208790d8641bbc7881fef995290ddc59cbc0c84e5df01a0b7
+observation-window:
+  starts-at: 2026-11-01T00:00:00.000Z
+  ends-at: 2026-11-15T23:59:59.000Z

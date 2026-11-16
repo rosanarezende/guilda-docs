@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "subject": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "revision": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "cursor": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "note": {
+      "$ref": "#/$defs/__schema4"
+    },
+    "qrds": {
+      "$ref": "#/$defs/__schema5"
+    }
+  },
+  "required": [
+    "artifact",
+    "subject",
+    "revision",
+    "cursor",
+    "qrds"
+  ],
+  "additionalProperties": false,
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto.",
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "const": "deliberation-ledger"
+    },
+    "__schema1": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema2": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "__schema3": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema4": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema5": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "researching",
+              "decided",
+              "withdrawn",
+              "superseded"
+            ]
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "node": {
+                      "$ref": "#/$defs/__schema6"
+                    },
+                    "checkpoint": {
+                      "$ref": "#/$defs/__schema7"
+                    },
+                    "task": {
+                      "$ref": "#/$defs/__schema8"
+                    }
+                  },
+                  "required": [
+                    "node"
+                  ],
+                  "additionalProperties": false,
+                  "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "surface": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "surface"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "advisory": {
+            "type": "object",
+            "properties": {
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "supported-by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "supersedes": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "qrd": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "scope": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "qrd",
+                    "scope"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "precedent": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "scope": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "precedent",
+                    "scope"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "superseded-by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "withdrawal": {
+            "type": "object",
+            "properties": {
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "decision-record": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "anchors": {
+            "type": "object",
+            "properties": {
+              "node": {
+                "type": "string",
+                "minLength": 1
+              },
+              "checkpoint": {
+                "type": "string",
+                "minLength": 1
+              },
+              "task": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "file",
+          "status",
+          "blocks",
+          "supported-by",
+          "supersedes",
+          "decision-record"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "__schema6": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema7": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema8": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/deliberation-ledger.schema.json",
+  "title": "deliberation-ledger"
+}

@@ -64,10 +64,14 @@ A demonstração do percurso pode comprovar que a orientação funciona para os 
 
 Para observar o efeito, o time define a fonte dos eventos, o período, a população, as exclusões e a regra de cálculo. Contas de teste e pessoas sem janela completa de observação precisam de tratamento explícito. Falta de dados não vira resultado zero.
 
-Neste exemplo, **o resultado ainda não foi medido**. Mesmo quando houver um valor observado, compará-lo à meta exige considerar a situação inicial e as condições da medição. A associação com a iniciativa não basta para atribuir causalidade.
+O [conjunto de arquivos deste exemplo](primeiro-valor/README.md) ilustra essa medição com dados inteiramente sintéticos: média inicial de dez dias, acompanhamento de quatro e alvo de três. O resultado fica acima do alvo, e o veredito pede mais evidência. Esses números não representam clientes reais ou efeito comprovado da Guilda. Mesmo com um valor observado, a associação com a iniciativa não basta para atribuir causalidade.
 
 ## Voltar à decisão
 
 Com as evidências da entrega e a observação do resultado, as pessoas responsáveis podem manter a direção, ajustá-la, investigar uma dúvida ou encerrar a aposta com justificativa. O registro permite recuperar o caminho: por que se escolheu, o que foi autorizado, o que foi entregue e o que realmente se aprendeu.
 
 Esse retorno conecta estratégia, coordenação e execução. Para o desenho técnico que sustenta essas relações, leia [Como a Guilda é construída](../docs/arquitetura.md).
+
+## Ler e conferir os registros
+
+O [cenário completo](primeiro-valor/README.md) liga tese, objetivo, métrica, alvo, iniciativa, análise, ativação, direção, plano, trabalhos, evidências, resultado, veredito e QRD. Os [schemas públicos](../schemas/README.md) documentam os formatos reais, sem concentrar hipótese e medição artificialmente na Intent.

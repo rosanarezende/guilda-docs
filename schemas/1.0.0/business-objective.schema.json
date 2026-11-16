@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "business-objective"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "label": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string",
+          "enum": [
+            "company-strategy",
+            "domain-objective",
+            "team-key-result"
+          ]
+        },
+        "period": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "active",
+            "closed",
+            "superseded",
+            "dropped"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "label",
+        "level",
+        "period",
+        "owner",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "relations": {
+      "type": "object",
+      "properties": {
+        "framed-by": {
+          "type": "string"
+        },
+        "measured-by": {
+          "type": "string"
+        },
+        "authorizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/business-objective.schema.json",
+  "title": "business-objective",
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto."
+}

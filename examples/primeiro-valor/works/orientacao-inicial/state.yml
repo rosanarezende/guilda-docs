@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/work-state.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: work-state
+work:
+  id: orientacao-inicial
+  type: delivery
+revision: 1
+lifecycle:
+  status: active
+  phase: verifying
+  owner: pessoa-responsavel-acme
+  started-at: 2026-10-23
+topology:
+  cursor:
+    node: conferir
+    checkpoint: prova
+    task: null
+  nodes:
+    - id: conferir
+      role: verification
+      objective: Examinar as evidências do exercício.
+      progress: active
+      sequence: 1
+      terminal: true
+      depends-on: []
+      checkpoints:
+        - id: prova
+          objective: Conferir os critérios e registrar os limites.
+          method-law: A interpretação humana permanece distinta da prova estrutural.
+          progress: active
+          readiness: pending
+          tasks:
+            - id: documentar
+              title: Conservar evidência ilustrativa.
+              status: done
+              evidence:
+                - evidence/percurso.md
+          evidence:
+            - evidence/percurso.md
+          required-evidence:
+            - evidence/percurso.md
+relations:
+  blocked-by: []

@@ -61,6 +61,23 @@ A pessoa deve poder conferir o que será enviado e editar a proposta recebida. A
 
 Descobrir uma descrição nos arquivos, declará-la oficialmente e comprovar uma capacidade são operações com significados diferentes. Essa distinção precisa sobreviver tanto à interface quanto à resposta da IA.
 
+## Do negócio aos registros públicos
+
+A informação de negócio não fica concentrada na direção autorizada. Cada registro tem um papel:
+
+| Grupo | Papel e relação |
+| --- | --- |
+| Tese e objetivo | Enquadrar a oportunidade e nomear o efeito pretendido. |
+| Métrica e alvo | Definir procedimento, unidade, valor esperado, situação inicial e janela. |
+| Iniciativa e análise | Conservar problema, hipótese, dúvidas, referências e avaliação de viabilidade. |
+| Decisão de ativação e direção | Conservar a escolha sobre uma base examinada e a direção autorizada, com referências à medição. |
+| Plano e trabalhos | Relacionar critérios, fases, dependências e os registros próprios de escopo e andamento. |
+| Despachos e QRDs | Registrar decisões leves ou deliberações com pergunta, raciocínio e decisão juntos. |
+| Evidências e resultado | Separar comprovação da entrega e observação do efeito com fonte e período. |
+| Veredito e nova deliberação | Interpretar o resultado e sustentar a revisão da aposta. |
+
+Os [formatos versionados](../schemas/README.md) foram exportados dos contratos canônicos dos registros. A [cadeia fictícia em arquivos](../examples/primeiro-valor/README.md) permite ler e conferir essas relações com um validador independente do produto. O conjunto não publica protocolos internos de execução ou resolução de autoridade.
+
 ## Tecnologias e critérios de engenharia
 
 - **TypeScript e contratos tipados:** capacidades e consumidores compartilham formas verificáveis, sem redefinir o domínio em cada interface.

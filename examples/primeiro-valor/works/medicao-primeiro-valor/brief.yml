@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/work-brief.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: work-brief
+work:
+  id: medicao-primeiro-valor
+  type: delivery
+  title: Observar o primeiro valor
+relations:
+  planned-in: ../../intents/orientar-primeiro-valor/breakdown.yml
+  governed-by: []
+context:
+  problem: É preciso medir o efeito sem confundir entrega e resultado.
+objective:
+  capability: Medição reproduzível.
+  approach: Conservar critérios e evidências no cenário fictício.
+boundaries:
+  in-scope:
+    - Demonstração documental e dados sintéticos.
+  out-of-scope:
+    - Clientes reais, implantação e aprovação de trabalhos reais.
+done-when:
+  - Critérios examinados com fontes consultáveis.
+value-verification:
+  policy: immediate
+  signal: Média de quatro dias no grupo follow-up fictício.
+  owner: pessoa-responsavel-acme
+  criteria: Conferir a evidência documental sem presumir causalidade.

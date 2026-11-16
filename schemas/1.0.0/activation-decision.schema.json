@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "schemaVersion": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "metadata": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "decision-briefing": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "decision-payload": {
+      "$ref": "#/$defs/__schema5"
+    },
+    "promote-effect": {
+      "$ref": "#/$defs/__schema6"
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata",
+    "decision-briefing",
+    "decision-payload"
+  ],
+  "additionalProperties": false,
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto.",
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "const": "decision-record-set"
+    },
+    "__schema1": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decisionKind": {
+          "type": "string",
+          "const": "activate-intent"
+        },
+        "target-ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base-revision": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "decided-at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "const": "heavy"
+        },
+        "eligibility-state": {
+          "type": "string",
+          "enum": [
+            "satisfied",
+            "blocked"
+          ]
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "decisionKind",
+        "target-ref",
+        "base-revision",
+        "decided-at",
+        "type",
+        "eligibility-state",
+        "authority"
+      ],
+      "additionalProperties": false
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "human-layer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical-layer": {
+          "type": "object",
+          "properties": {
+            "initiative-hash": {
+              "type": "string",
+              "minLength": 1
+            },
+            "triage-hash": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "initiative-hash",
+            "triage-hash"
+          ],
+          "additionalProperties": false
+        },
+        "negative-scope": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema4"
+          }
+        }
+      },
+      "required": [
+        "human-layer",
+        "technical-layer",
+        "negative-scope"
+      ],
+      "additionalProperties": false
+    },
+    "__schema4": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema5": {
+      "type": "object",
+      "properties": {
+        "verbatim-choice": {
+          "type": "string",
+          "enum": [
+            "promote",
+            "reject",
+            "return-for-work"
+          ]
+        },
+        "verbatim-rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approver": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "verbatim-choice",
+        "verbatim-rationale",
+        "approver"
+      ],
+      "additionalProperties": false
+    },
+    "__schema6": {
+      "type": "object",
+      "properties": {
+        "materialize-intent": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "materialize-intent"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/activation-decision.schema.json",
+  "title": "activation-decision"
+}

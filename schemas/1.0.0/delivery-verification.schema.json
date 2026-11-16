@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "delivery-verification"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "work-ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "work-ref"
+      ],
+      "additionalProperties": false
+    },
+    "delivered-revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance-criteria": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema0"
+      }
+    },
+    "evidence-refs": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema1"
+      }
+    },
+    "value-observation-disposition": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "evidence-refs": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "follow-up-ref": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "rationale": {
+          "$ref": "#/$defs/__schema5"
+        }
+      },
+      "required": [
+        "policy",
+        "evidence-refs",
+        "follow-up-ref",
+        "rationale"
+      ],
+      "additionalProperties": false,
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata",
+    "delivered-revision",
+    "capability",
+    "acceptance-criteria",
+    "evidence-refs",
+    "value-observation-disposition"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema1": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema2": {
+      "type": "string",
+      "enum": [
+        "immediate",
+        "deferred",
+        "not-applicable-with-rationale"
+      ]
+    },
+    "__schema3": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "__schema4": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema5": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/delivery-verification.schema.json",
+  "title": "delivery-verification",
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto."
+}

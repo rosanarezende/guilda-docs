@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/triage.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: work-triage
+schemaVersion: guilda.governance/v1
+metadata:
+  initiative-ref: initiative.yml
+revisions:
+  - base-revision: 1
+    created-at: 2026-10-21
+    actor: pessoa-responsavel-acme
+    triage-assessment:
+      unknowns:
+        - id: resposta-valor
+          from-declared-unknown: definicao-de-valor
+          summary: Definição de primeiro valor para o exercício.
+          disposition: answered
+          answer: No exemplo, concluir a primeira operação útil acompanhada pela orientação.
+    coordinated-contracts: []
+    viability: Examinar orientação e medição com dados sintéticos; implantação real exigirá suas provas.
+    fate: activation-ready

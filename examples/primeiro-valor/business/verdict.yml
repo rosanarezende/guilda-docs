@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/outcome-verdict.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: outcome-verdict
+schemaVersion: guilda.governance/v1
+metadata:
+  outcome-ref: outcome.yml
+  decision-kind: accept-outcome-verdict
+  created-at: 2026-11-15T12:00:00.000Z
+  authority: pessoa-responsavel-acme
+verdict:
+  status: needs-evidence
+  rationale: No conjunto sintético, a média passa de dez para quatro dias, acima do alvo de três. Os
+    grupos ilustrativos não demonstram causalidade ou resultado real; investigar antes de atribuir
+    impacto.

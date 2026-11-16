@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "outcome-verdict"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "outcome-ref": {
+          "type": "string"
+        },
+        "decision-kind": {
+          "type": "string",
+          "const": "accept-outcome-verdict"
+        },
+        "created-at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "outcome-ref",
+        "decision-kind",
+        "created-at",
+        "authority"
+      ],
+      "additionalProperties": false
+    },
+    "verdict": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "accept",
+            "reject",
+            "needs-evidence"
+          ]
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "rationale"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata",
+    "verdict"
+  ],
+  "additionalProperties": false,
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/outcome-verdict.schema.json",
+  "title": "outcome-verdict",
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto."
+}

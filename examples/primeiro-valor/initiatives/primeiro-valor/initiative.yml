@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/initiative.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: initiative-aggregate
+schemaVersion: guilda.governance/v1
+metadata:
+  id: orientar-primeiro-valor
+  title: Orientar até o primeiro uso útil
+  status: activation-ready
+  revision: 1
+  created-at: 2026-10-20
+  owner-context: governance-workspace
+  owner: pessoa-responsavel-acme
+originates-from:
+  proposal-ref: null
+  creation-path: direct-registration
+context:
+  problem:
+    business: Clientes podem demorar a perceber a utilidade do produto.
+    customer: Os primeiros passos não deixam claro como alcançar um uso útil.
+  business-tier-binding:
+    objective-ref: business-objective:reduzir-tempo-primeiro-valor
+  details: "Hipótese: orientar os primeiros passos pode reduzir o tempo até o primeiro valor. A
+    medição precisa ser definida e as alternativas comparadas antes de atribuir impacto. Este é um
+    retrato documental após análise, não o payload de cadastro inicial."
+  feasibility-preconditions:
+    - Definir primeiro valor e instrumentar a janela de observação.
+  declared-unknowns:
+    - id: definicao-de-valor
+      summary: Qual ação representa o primeiro uso útil?
+  references:
+    - label: Investigação fictícia
+      path: references/investigacao.md
+      url: null

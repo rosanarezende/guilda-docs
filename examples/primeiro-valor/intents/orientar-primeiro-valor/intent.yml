@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/intent.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: intent-aggregate
+schemaVersion: guilda.governance/v1
+metadata:
+  id: orientar-primeiro-valor
+  revision: 1
+  created-at: 2026-10-22
+  owner: pessoa-responsavel-acme
+  authorized-by: pessoa-responsavel-acme
+originates-from:
+  initiative-ref: ../../initiatives/primeiro-valor/initiative.yml
+  activation-decision-ref: ../../initiatives/primeiro-valor/activation.yml
+enquadramento:
+  title: Orientar até o primeiro valor
+  context: A direção responde ao problema e à hipótese registrados na iniciativa.
+  principles:
+    - Pessoas decidem; a assistência prepara propostas revisáveis.
+  factual-baseline:
+    - Exercício fictício com média inicial sintética de dez dias.
+  risks-and-mitigations:
+    - risk: Confundir associação com causalidade.
+      mitigation: Conservar fonte, janela e limites da comparação.
+  global-gates:
+    - Conferir o percurso e a definição de primeiro valor.
+objetivo:
+  capability: Permitir alcançar o primeiro valor com orientação clara.
+  approach: validate-first
+  approach-note: Conferir o percurso e a medição antes de extrapolar o resultado.
+target-outcome:
+  metric-ref:
+    namespace: acme-example
+    kind: metric-definition
+    id: tempo-primeiro-valor
+    revision: "1"
+  target-ref:
+    namespace: acme-example
+    kind: business-target
+    id: primeiro-valor-em-tres-dias
+    revision: "1"
+decision-gate:
+  activation-gate-ref: ../../initiatives/primeiro-valor/activation.yml
+  decided-by: pessoa-responsavel-acme
+signal: operational-target
+operational-posture:
+  state: active

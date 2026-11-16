@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/business-objective.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: business-objective
+schemaVersion: guilda.governance/v1
+metadata:
+  id: reduzir-tempo-primeiro-valor
+  revision: 1
+  label: Reduzir tempo até o primeiro valor
+  level: team-key-result
+  period: exercicio-ficticio-novembro-2026
+  owner: pessoa-responsavel-acme
+  status: active
+relations:
+  framed-by: business-thesis:valor-inicial
+  measured-by: metric-definition:tempo-primeiro-valor
+  authorizes:
+    - intent:orientar-primeiro-valor

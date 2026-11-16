@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "schemaVersion": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "metadata": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "revisions": {
+      "$ref": "#/$defs/__schema4"
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata",
+    "revisions"
+  ],
+  "additionalProperties": false,
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto.",
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "const": "work-triage"
+    },
+    "__schema1": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "initiative-ref": {
+          "$ref": "#/$defs/__schema3"
+        }
+      },
+      "required": [
+        "initiative-ref"
+      ],
+      "additionalProperties": false
+    },
+    "__schema3": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema4": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema5"
+      }
+    },
+    "__schema5": {
+      "type": "object",
+      "properties": {
+        "base-revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "created-at": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "actor": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "triage-assessment": {
+          "type": "object",
+          "properties": {
+            "unknowns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/__schema3"
+                  },
+                  "from-declared-unknown": {
+                    "$ref": "#/$defs/__schema3"
+                  },
+                  "summary": {
+                    "$ref": "#/$defs/__schema6"
+                  },
+                  "disposition": {
+                    "type": "string",
+                    "enum": [
+                      "answered",
+                      "deferred",
+                      "exploration-required"
+                    ]
+                  },
+                  "answer": {
+                    "$ref": "#/$defs/__schema6"
+                  }
+                },
+                "required": [
+                  "id",
+                  "from-declared-unknown",
+                  "summary",
+                  "disposition",
+                  "answer"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "unknowns"
+          ],
+          "additionalProperties": false
+        },
+        "coordinated-contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "$ref": "#/$defs/__schema3"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "viability": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "fate": {
+          "type": "string",
+          "enum": [
+            "activation-ready",
+            "exploration-required",
+            "return-for-work"
+          ]
+        }
+      },
+      "required": [
+        "base-revision",
+        "created-at",
+        "actor",
+        "triage-assessment",
+        "coordinated-contracts",
+        "viability",
+        "fate"
+      ],
+      "additionalProperties": false
+    },
+    "__schema6": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/triage.schema.json",
+  "title": "triage"
+}

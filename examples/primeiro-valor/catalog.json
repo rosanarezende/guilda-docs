@@ -1,0 +1,184 @@
+{
+  "formatVersion": "1.0.0",
+  "fictional": true,
+  "namespace": "acme-example",
+  "note": "Todos os dados, decisões, responsáveis e resultados são sintéticos. O catálogo é um índice deste exemplo, não um registro canônico da Guilda.",
+  "records": [
+    {
+      "file": "business/thesis.yml",
+      "schema": "business-thesis",
+      "kind": "business-thesis",
+      "id": "valor-inicial",
+      "revision": "1",
+      "sha256": "38027fc95d71966cd333c5dd763084396c048be80807ae0f0ab73b649e91fd61"
+    },
+    {
+      "file": "business/objective.yml",
+      "schema": "business-objective",
+      "kind": "business-objective",
+      "id": "reduzir-tempo-primeiro-valor",
+      "revision": "1",
+      "sha256": "4c97308a326742f0a80400603d2fe9bb0d6edfad6a57c478f281f945135346c3"
+    },
+    {
+      "file": "business/metric.yml",
+      "schema": "metric-definition",
+      "kind": "metric-definition",
+      "id": "tempo-primeiro-valor",
+      "revision": "1",
+      "sha256": "3e43931560dbb5cf2995c4ccc986fbb9a3c8d6bedc3f120a2b1d0b48c20f7739"
+    },
+    {
+      "file": "business/target.yml",
+      "schema": "business-target",
+      "kind": "business-target",
+      "id": "primeiro-valor-em-tres-dias",
+      "revision": "1",
+      "sha256": "978e2002f1719f2ab37ce712f2215b5a1290d6cf777c8aabd0e4a7d4343a9ea1"
+    },
+    {
+      "file": "initiatives/primeiro-valor/initiative.yml",
+      "schema": "initiative",
+      "kind": "initiative-aggregate",
+      "id": "orientar-primeiro-valor",
+      "revision": "1",
+      "sha256": "6aaf595540d5cbe8f6f83c68986bfa9c18bf8891635e747d849da78b3a04850d"
+    },
+    {
+      "file": "initiatives/primeiro-valor/triage.yml",
+      "schema": "triage",
+      "kind": "work-triage",
+      "id": "triagem-primeiro-valor",
+      "revision": "1",
+      "sha256": "a46d6cf4136e905c96877c8f729e55278dbc4d6d268d29cc22dd64fa0cdb7749"
+    },
+    {
+      "file": "initiatives/primeiro-valor/activation.yml",
+      "schema": "activation-decision",
+      "kind": "decision-record-set",
+      "id": "ativar-orientacao",
+      "revision": "1",
+      "sha256": "3edc3a6e2db502c84ca755350c57dd5a1c4bc649f03bfc7e84cc10c192f69419"
+    },
+    {
+      "file": "intents/orientar-primeiro-valor/intent.yml",
+      "schema": "intent",
+      "kind": "intent-aggregate",
+      "id": "orientar-primeiro-valor",
+      "revision": "1",
+      "sha256": "091eaecfd3ff6c22ab36daf24614e8f27fd8a27b72e8973bd05021782f886779"
+    },
+    {
+      "file": "intents/orientar-primeiro-valor/breakdown.yml",
+      "schema": "breakdown",
+      "kind": "breakdown-revision",
+      "id": "plano-primeiro-valor",
+      "revision": "1",
+      "sha256": "3b604d6cdb3e4391af1d2a9bff543f28d2500e4d9b3f4b6a7c94f622326dc1df"
+    },
+    {
+      "file": "works/orientacao-inicial/brief.yml",
+      "schema": "work-brief",
+      "kind": "work-brief",
+      "id": "orientacao-inicial",
+      "revision": "1",
+      "sha256": "2ded3dc5e6272c49beefc923ccdabe68c673092e326268cd568cbf3a61aa1511"
+    },
+    {
+      "file": "works/orientacao-inicial/state.yml",
+      "schema": "work-state",
+      "kind": "work-state",
+      "id": "orientacao-inicial",
+      "revision": "1",
+      "sha256": "977dd1c026e844bbad23213ca7fcbf1792fa5f5b5afb5adf0383694079a54141"
+    },
+    {
+      "file": "works/orientacao-inicial/dispatches.yml",
+      "schema": "work-dispatches",
+      "kind": "work-dispatches",
+      "id": "orientacao-inicial",
+      "revision": "1",
+      "sha256": "7674dfe4066df7e489fb8199b39f77d9b40721fa710550e2440b13f3428fd017"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/brief.yml",
+      "schema": "work-brief",
+      "kind": "work-brief",
+      "id": "medicao-primeiro-valor",
+      "revision": "1",
+      "sha256": "32cb2ae23fadbb9a46f6d2ea9bcce8b9980a33119155a91e43bd211678147a8f"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/state.yml",
+      "schema": "work-state",
+      "kind": "work-state",
+      "id": "medicao-primeiro-valor",
+      "revision": "1",
+      "sha256": "40d76f1a32ef785a879e71854b179ff6be65b75ff3f163c21774d0310bfbde56"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/dispatches.yml",
+      "schema": "work-dispatches",
+      "kind": "work-dispatches",
+      "id": "medicao-primeiro-valor",
+      "revision": "1",
+      "sha256": "6bf3215b5c5727cc0695b2dfe6b085d6eaf1408c45c36dd22d810628f8b6e0eb"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/evidence/verification.yml",
+      "schema": "delivery-verification",
+      "kind": "delivery-verification",
+      "id": "verificar-medicao",
+      "revision": "1",
+      "sha256": "170c8d4d4c5afb404d39e1f580caf46e79f4b3cfeae82fbb7745272b3d12ff11"
+    },
+    {
+      "file": "business/outcome.yml",
+      "schema": "outcome",
+      "kind": "outcome-record",
+      "id": "resultado-primeiro-valor",
+      "revision": "1",
+      "sha256": "c1faf7996f336a6ad39390830618d2c9379b1d2112b4c1331410db39d53ad7b5"
+    },
+    {
+      "file": "business/verdict.yml",
+      "schema": "outcome-verdict",
+      "kind": "outcome-verdict",
+      "id": "revisar-primeiro-valor",
+      "revision": "1",
+      "sha256": "048a034b6b6361df09e4ef05cf84bcacc2b22144ad6b8e2924fbd4446a76cdf8"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/deliberation.yml",
+      "schema": "deliberation-ledger",
+      "kind": "deliberation-ledger",
+      "id": "deliberacoes-primeiro-valor",
+      "revision": "1",
+      "sha256": "52be712250766de180ad0338c6619f734cc974a13c65cb9b84a98ec58b52a55d"
+    }
+  ],
+  "attachments": [
+    {
+      "file": "works/medicao-primeiro-valor/evidence/observations.csv",
+      "sha256": "78f2b82ce5fd517208790d8641bbc7881fef995290ddc59cbc0c84e5df01a0b7",
+      "reference": {
+        "namespace": "acme-example",
+        "kind": "evidence-record",
+        "id": "observacao-primeiro-valor",
+        "revision": "sha256:78f2b82ce5fd517208790d8641bbc7881fef995290ddc59cbc0c84e5df01a0b7"
+      }
+    },
+    {
+      "file": "works/orientacao-inicial/evidence/percurso.md",
+      "sha256": "98c92bb34b7ebc12b979c0065668dfbb890c219cc21b297cd86929f8bfd36538"
+    },
+    {
+      "file": "initiatives/primeiro-valor/references/investigacao.md",
+      "sha256": "f08b4746892447c3b2433ecfde161069825620720839ff4d2e89036f10c29400"
+    },
+    {
+      "file": "works/medicao-primeiro-valor/deliberations/qrd-rever-aposta.md",
+      "sha256": "84e2523a50e42c3afb6a261035b1ad8d3805d8b94abdca3ba379cff5a5b41775"
+    }
+  ]
+}

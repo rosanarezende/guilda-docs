@@ -67,16 +67,24 @@ A evolução amplia essa base em cinco jornadas: compreender os repositórios e 
 
 Este repositório apresenta o produto. O código do aplicativo e do motor permanece privado, e ainda não há instaladores publicados para uso geral.
 
-## Documentação pública e distribuição
+## Formatos abertos e documentação
 
-O `guilda-docs` é a porta de entrada pública da Guilda. Além desta apresentação, você pode explorar:
+O **guilda-docs** reúne a explicação do produto e os **contratos abertos dos registros**, com versão explícita e exemplos conferíveis sem instalar a Guilda:
 
-- [Como a Guilda é construída](docs/arquitetura.md): responsabilidades, tecnologias, limites e custos das escolhas de arquitetura.
-- [Exemplo de primeiro valor](examples/primeiro-valor.md): um cenário fictício que conecta contexto, decisão, plano, evidências e medição.
+- [Como a Guilda é construída](docs/arquitetura.md): responsabilidades, tecnologias e custos das escolhas de arquitetura.
+- [Exemplo de primeiro valor](examples/primeiro-valor.md): percurso narrativo do problema à revisão da aposta.
+- [Cenário completo em arquivos](examples/primeiro-valor/README.md): tese, objetivo, hipótese na iniciativa, métrica, alvo, análise, direção, plano, trabalhos, decisões, evidências e resultado sintético.
+- [Schemas e leitura independente](schemas/README.md): formatos versionados, regras complementares e validador público.
 
-Schemas e exemplos de registros YAML/JSON ainda não foram publicados aqui.
+Objetivos, métricas e alvos têm registros próprios. A iniciativa conserva problema, hipótese e dúvidas; sua análise e ativação sustentam a direção autorizada. O plano relaciona os trabalhos, cada um com estado e decisões próprios. Evidências, resultado observado e veredito permitem voltar à escolha. A QRD registra uma deliberação situada nessa cadeia, sem substituir os demais registros.
 
-A proposta de distribuição prevê uso pessoal gratuito e modalidades comerciais para organizações. As condições de uso, o escopo dos formatos públicos e eventual acesso empresarial ao código precisam ser formalizados em licenças próprias. Esta apresentação não substitui esses termos nem anuncia modalidades já disponíveis para contratação.
+O formato aberto permite conservar, ler e auditar os dados publicados sem depender do aplicativo proprietário. O pacote documenta seu alcance e distingue conferência de formato, validade semântica e autorização de operação. O exemplo é inteiramente fictício; seus números não são resultados reais da Guilda.
+
+## Licenciamento e distribuição
+
+Os textos, diagramas, ilustrações e exemplos documentais estão sob **[CC BY 4.0](LICENSE)**. Os JSON Schemas, o manifesto e o validador independente estão sob **[MIT](schemas/LICENSE)**, para interoperabilidade e leitura aberta dos registros.
+
+Essas licenças não abrangem o código-fonte privado, o motor de execução, o aplicativo desktop ou os serviços da Guilda, nem concedem direitos sobre marcas. A proposta de distribuição do produto prevê uso pessoal gratuito e modalidades comerciais para organizações, sob termos próprios ainda a formalizar.
 
 ## Autoria e contato
 

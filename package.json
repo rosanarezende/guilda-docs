@@ -1,0 +1,26 @@
+{
+  "name": "guilda-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Documentação e formatos públicos de registros da Guilda.",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "validate": "node schemas/validate.ts",
+    "test": "node --test schemas/validate.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run validate && npm test"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

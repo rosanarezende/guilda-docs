@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/deliberation-ledger.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: deliberation-ledger
+subject: work:delivery/medicao-primeiro-valor
+revision: 1
+cursor: null
+qrds:
+  - id: QRD-ACME-001
+    file: deliberations/qrd-rever-aposta.md
+    status: decided
+    blocks: []
+    supported-by:
+      - ../../business/verdict.yml
+      - evidence/observations.csv
+    supersedes: []
+    decision-record: deliberations/qrd-rever-aposta.md
+    anchors:
+      node: conferir
+      checkpoint: prova

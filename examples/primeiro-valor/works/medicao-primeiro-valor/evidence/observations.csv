@@ -1,0 +1,7 @@
+cohort,client_id,registered_at,first_value_at,duration_ms
+baseline,fictional-b1,2026-10-01T00:00:00Z,2026-10-10T00:00:00Z,777600000
+baseline,fictional-b2,2026-10-01T00:00:00Z,2026-10-11T00:00:00Z,864000000
+baseline,fictional-b3,2026-10-01T00:00:00Z,2026-10-12T00:00:00Z,950400000
+follow-up,fictional-f1,2026-11-01T00:00:00Z,2026-11-04T00:00:00Z,259200000
+follow-up,fictional-f2,2026-11-01T00:00:00Z,2026-11-05T00:00:00Z,345600000
+follow-up,fictional-f3,2026-11-01T00:00:00Z,2026-11-06T00:00:00Z,432000000

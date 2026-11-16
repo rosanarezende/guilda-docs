@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../../../../schemas/1.0.0/delivery-verification.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: delivery-verification
+schemaVersion: guilda.governance/v1
+metadata:
+  work-ref: work:delivery/medicao-primeiro-valor
+delivered-revision: sha256:78f2b82ce5fd517208790d8641bbc7881fef995290ddc59cbc0c84e5df01a0b7
+capability: Calcular médias de duração a partir de dados sintéticos.
+acceptance-criteria:
+  - As seis durações conferem com os instantes declarados.
+  - As médias baseline e follow-up são reproduzíveis.
+evidence-refs:
+  - observations.csv
+value-observation-disposition:
+  policy: immediate
+  evidence-refs:
+    - ../../../business/outcome.yml
+  follow-up-ref: null
+  rationale: Exercício documental, sem causalidade demonstrada.

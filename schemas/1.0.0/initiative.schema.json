@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "initiative-aggregate"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "registered",
+            "triaged",
+            "activation-ready",
+            "activated",
+            "rejected",
+            "withdrawn",
+            "superseded"
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "created-at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner-context": {
+          "type": "string",
+          "const": "governance-workspace"
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "status",
+        "revision",
+        "created-at",
+        "owner-context",
+        "owner"
+      ],
+      "additionalProperties": false
+    },
+    "originates-from": {
+      "type": "object",
+      "properties": {
+        "proposal-ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "creation-path": {
+          "type": "string",
+          "enum": [
+            "from-proposal-with-provenance",
+            "direct-registration"
+          ]
+        }
+      },
+      "required": [
+        "proposal-ref",
+        "creation-path"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "problem": {
+          "type": "object",
+          "properties": {
+            "business": {
+              "type": "string",
+              "minLength": 1
+            },
+            "customer": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "business",
+            "customer"
+          ],
+          "additionalProperties": false
+        },
+        "business-tier-binding": {
+          "type": "object",
+          "properties": {
+            "objective-ref": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "objective-ref"
+          ],
+          "additionalProperties": false
+        },
+        "details": {
+          "type": "string",
+          "minLength": 1
+        },
+        "feasibility-preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "declared-unknowns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "summary"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/__schema0"
+              },
+              "path": {
+                "$ref": "#/$defs/__schema1"
+              },
+              "url": {
+                "$ref": "#/$defs/__schema2"
+              }
+            },
+            "required": [
+              "label",
+              "path",
+              "url"
+            ],
+            "additionalProperties": false,
+            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+          }
+        }
+      },
+      "required": [
+        "problem",
+        "business-tier-binding",
+        "details",
+        "feasibility-preconditions",
+        "declared-unknowns",
+        "references"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata",
+    "originates-from",
+    "context"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema1": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema2": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/initiative.schema.json",
+  "title": "initiative",
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto."
+}

@@ -1,0 +1,643 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "$ref": "#/$defs/__schema0"
+    },
+    {
+      "$ref": "#/$defs/__schema25"
+    }
+  ],
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto.",
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "schemaVersion": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "metadata": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "exit-criteria": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "delivery-routes": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "execution-phases": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema14"
+          }
+        },
+        "breaks-into": {
+          "type": "object",
+          "properties": {
+            "works": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema15"
+              }
+            }
+          },
+          "required": [
+            "works"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "artifact",
+        "schemaVersion",
+        "metadata",
+        "exit-criteria",
+        "execution-phases",
+        "breaks-into"
+      ],
+      "additionalProperties": false
+    },
+    "__schema1": {
+      "type": "string",
+      "const": "breakdown-revision"
+    },
+    "__schema2": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "intent-ref": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "revision": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "applied-at": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "applied-via": {
+          "type": "string",
+          "const": "intent.apply-breakdown"
+        }
+      },
+      "required": [
+        "intent-ref",
+        "revision",
+        "applied-at",
+        "applied-via"
+      ],
+      "additionalProperties": false
+    },
+    "__schema4": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema5": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "__schema6": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema7"
+      }
+    },
+    "__schema7": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "description": {
+          "$ref": "#/$defs/__schema8"
+        },
+        "work-refs": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema9"
+          }
+        },
+        "delivery": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "contained"
+                },
+                "rationale": {
+                  "$ref": "#/$defs/__schema8"
+                }
+              },
+              "required": [
+                "kind",
+                "rationale"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "coordinated"
+                },
+                "rationale": {
+                  "$ref": "#/$defs/__schema8"
+                }
+              },
+              "required": [
+                "kind",
+                "rationale"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "routed"
+                },
+                "route-refs": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/__schema10"
+                  },
+                  "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                }
+              },
+              "required": [
+                "kind",
+                "route-refs"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "work-refs",
+        "delivery"
+      ],
+      "additionalProperties": false
+    },
+    "__schema8": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema9": {
+      "type": "object",
+      "properties": {
+        "governance-root": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "work-id": {
+          "$ref": "#/$defs/__schema10"
+        }
+      },
+      "required": [
+        "governance-root",
+        "work-id"
+      ],
+      "additionalProperties": false
+    },
+    "__schema10": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "__schema11": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema12"
+      }
+    },
+    "__schema12": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "capability": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "definition-ref": {
+          "type": "object",
+          "properties": {
+            "namespace": {
+              "type": "string",
+              "const": "delivery-routing"
+            },
+            "kind": {
+              "type": "string",
+              "const": "delivery-route-definition"
+            },
+            "id": {
+              "$ref": "#/$defs/__schema10"
+            },
+            "revision": {
+              "$ref": "#/$defs/__schema4",
+              "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+            }
+          },
+          "required": [
+            "namespace",
+            "kind",
+            "id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        "phase-ref": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "criterion-ref": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "stages": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema13"
+          }
+        },
+        "proof": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema9"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "capability",
+        "definition-ref",
+        "criterion-ref",
+        "stages",
+        "proof"
+      ],
+      "additionalProperties": false
+    },
+    "__schema13": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "stage-ref": {
+              "$ref": "#/$defs/__schema10"
+            },
+            "disposition": {
+              "type": "string",
+              "const": "assigned"
+            },
+            "work-refs": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema9"
+              }
+            }
+          },
+          "required": [
+            "stage-ref",
+            "disposition",
+            "work-refs"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "stage-ref": {
+              "$ref": "#/$defs/__schema10"
+            },
+            "disposition": {
+              "type": "string",
+              "const": "not-applicable"
+            },
+            "work-refs": {
+              "minItems": 0,
+              "maxItems": 0,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema9"
+              }
+            },
+            "rationale": {
+              "$ref": "#/$defs/__schema8"
+            }
+          },
+          "required": [
+            "stage-ref",
+            "disposition",
+            "work-refs",
+            "rationale"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "__schema14": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "order": {
+          "$ref": "#/$defs/__schema5"
+        },
+        "title": {
+          "$ref": "#/$defs/__schema4"
+        },
+        "criterion-refs": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema4"
+          }
+        },
+        "completion": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string",
+                  "const": "derived"
+                }
+              },
+              "required": [
+                "mode"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string",
+                  "const": "human-decision"
+                },
+                "decision-subject": {
+                  "$ref": "#/$defs/__schema4"
+                },
+                "decision-ref": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "governance-root": {
+                          "$ref": "#/$defs/__schema10"
+                        },
+                        "work-id": {
+                          "$ref": "#/$defs/__schema10"
+                        },
+                        "gate-file": {
+                          "$ref": "#/$defs/__schema4",
+                          "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                        },
+                        "historical": {
+                          "type": "boolean",
+                          "const": true
+                        }
+                      },
+                      "required": [
+                        "governance-root",
+                        "work-id",
+                        "gate-file"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "mode",
+                "decision-subject",
+                "decision-ref"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "order",
+        "title",
+        "criterion-refs",
+        "completion"
+      ],
+      "additionalProperties": false
+    },
+    "__schema15": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "type": {
+          "$ref": "#/$defs/__schema16"
+        },
+        "governance-root": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "objective": {
+          "$ref": "#/$defs/__schema17"
+        },
+        "scope": {
+          "$ref": "#/$defs/__schema18"
+        },
+        "depends-on": {
+          "$ref": "#/$defs/__schema19"
+        },
+        "expected-outcomes": {
+          "$ref": "#/$defs/__schema20"
+        },
+        "acceptance-criteria": {
+          "$ref": "#/$defs/__schema22"
+        },
+        "invariant-bindings": {
+          "$ref": "#/$defs/__schema24"
+        },
+        "phase-ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "governance-root",
+        "objective",
+        "scope",
+        "depends-on",
+        "expected-outcomes",
+        "acceptance-criteria",
+        "invariant-bindings",
+        "phase-ref"
+      ],
+      "additionalProperties": false
+    },
+    "__schema16": {
+      "type": "string",
+      "enum": [
+        "delivery",
+        "maintenance",
+        "experiment"
+      ]
+    },
+    "__schema17": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema18": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema19": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema9"
+      }
+    },
+    "__schema20": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema21"
+      }
+    },
+    "__schema21": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema22": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema23"
+      }
+    },
+    "__schema23": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema24": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "__schema25": {
+      "type": "object",
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/__schema1"
+        },
+        "schemaVersion": {
+          "$ref": "#/$defs/__schema2"
+        },
+        "metadata": {
+          "$ref": "#/$defs/__schema3"
+        },
+        "exit-criteria": {
+          "$ref": "#/$defs/__schema6"
+        },
+        "delivery-routes": {
+          "$ref": "#/$defs/__schema11"
+        },
+        "breaks-into": {
+          "type": "object",
+          "properties": {
+            "works": {
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema26"
+              }
+            }
+          },
+          "required": [
+            "works"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "artifact",
+        "schemaVersion",
+        "metadata",
+        "exit-criteria",
+        "breaks-into"
+      ],
+      "additionalProperties": false
+    },
+    "__schema26": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "type": {
+          "$ref": "#/$defs/__schema16"
+        },
+        "governance-root": {
+          "$ref": "#/$defs/__schema10"
+        },
+        "objective": {
+          "$ref": "#/$defs/__schema17"
+        },
+        "scope": {
+          "$ref": "#/$defs/__schema18"
+        },
+        "depends-on": {
+          "$ref": "#/$defs/__schema19"
+        },
+        "expected-outcomes": {
+          "$ref": "#/$defs/__schema20"
+        },
+        "acceptance-criteria": {
+          "$ref": "#/$defs/__schema22"
+        },
+        "invariant-bindings": {
+          "$ref": "#/$defs/__schema24"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "governance-root",
+        "objective",
+        "scope",
+        "depends-on",
+        "expected-outcomes",
+        "acceptance-criteria",
+        "invariant-bindings"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/breakdown.schema.json",
+  "title": "breakdown"
+}

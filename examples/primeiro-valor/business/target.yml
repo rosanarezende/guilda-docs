@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/business-target.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: business-target
+schemaVersion: guilda.governance/v1
+metadata:
+  id: primeiro-valor-em-tres-dias
+  revision: 1
+  objective-ref:
+    namespace: acme-example
+    kind: business-objective
+    id: reduzir-tempo-primeiro-valor
+    revision: "1"
+  metric-ref:
+    namespace: acme-example
+    kind: metric-definition
+    id: tempo-primeiro-valor
+    revision: "1"
+  expected-value: 259200000
+  actual-value: derived
+  target-definer: pessoa-responsavel-acme
+  baseline:
+    kind: measured
+    value: 864000000
+    observed-at: 2026-10-15T12:00:00.000Z
+  observation-window:
+    starts-at: 2026-11-01T00:00:00.000Z
+    ends-at: 2026-11-15T23:59:59.000Z

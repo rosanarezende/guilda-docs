@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/1.0.0/business-thesis.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: business-thesis
+schemaVersion: guilda.governance/v1
+metadata:
+  id: valor-inicial
+  label: Perceber utilidade cedo pode apoiar a adoção do produto.
+  owner: pessoa-responsavel-acme
+relations:
+  explores:
+    - id: ativacao
+      label: Primeiro uso útil e compreensão dos primeiros passos

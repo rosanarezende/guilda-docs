@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/activation-decision.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: decision-record-set
+schemaVersion: guilda.governance/v1
+metadata:
+  id: ativar-orientacao
+  decisionKind: activate-intent
+  target-ref: initiative:orientar-primeiro-valor
+  base-revision: 1
+  decided-at: 2026-10-22
+  type: heavy
+  eligibility-state: satisfied
+  authority: pessoa-responsavel-acme
+decision-briefing:
+  human-layer: "Decisão fictícia: seguir a orientação com medição explícita."
+  technical-layer:
+    initiative-hash: 6aaf595540d5cbe8f6f83c68986bfa9c18bf8891635e747d849da78b3a04850d
+    triage-hash: a46d6cf4136e905c96877c8f729e55278dbc4d6d268d29cc22dd64fa0cdb7749
+  negative-scope:
+    - Não autoriza acesso a clientes reais nem demonstra implantação.
+decision-payload:
+  verbatim-choice: promote
+  verbatim-rationale: Vamos examinar a orientação e medir separadamente seu resultado no cenário fictício.
+  approver: pessoa-responsavel-acme
+promote-effect:
+  materialize-intent: ../../intents/orientar-primeiro-valor/intent.yml

@@ -1,0 +1,237 @@
+{
+  "formatVersion": "1.0.0",
+  "recordSchemaVersion": "guilda.governance/v1",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "sourceRevision": "e21899593afe4fd14dfd46e7c3cd2952f40be47c",
+  "sourceLine": "main",
+  "exportedAt": "2026-11-15",
+  "generator": {
+    "library": "zod",
+    "version": "4.6.7",
+    "mode": "input",
+    "reused": "ref",
+    "unrepresentable": "throw"
+  },
+  "license": "MIT",
+  "validationScope": "structural; semantic requirements are documented in semantics.md",
+  "contracts": [
+    {
+      "file": "business-thesis.schema.json",
+      "symbol": "BusinessThesisSchema",
+      "source": "guilda-kernel/src/governance-workspace/business/thesis.ts",
+      "nodesWithCustomRefinements": 0,
+      "sha256": "f64d4288f76fde5dc60220b20efa062860ffe9934addd777e61276ff5cf0b419"
+    },
+    {
+      "file": "business-objective.schema.json",
+      "symbol": "BusinessObjectiveSchema",
+      "source": "guilda-kernel/src/governance-workspace/business/objective.ts",
+      "nodesWithCustomRefinements": 0,
+      "sha256": "6bdce1d5b30051365ea7e4496e64a166ae00c84d23400d2d542d905a7e93693e"
+    },
+    {
+      "file": "metric-definition.schema.json",
+      "symbol": "MetricDefinitionSchema",
+      "source": "guilda-kernel/src/governance-workspace/business/metric.ts",
+      "nodesWithCustomRefinements": 1,
+      "sha256": "e7db1d7032deadb8e07a7acd0900baaa797430da5fdbddf43757a1e288feb87f"
+    },
+    {
+      "file": "business-target.schema.json",
+      "symbol": "BusinessTargetSchema",
+      "source": "guilda-kernel/src/governance-workspace/business/target.ts",
+      "nodesWithCustomRefinements": 5,
+      "sha256": "e3bf25fdaa39f499821a5494be898efb1fccb9fb1f4b4e609bfadf606b1ea30a"
+    },
+    {
+      "file": "initiative.schema.json",
+      "symbol": "InitiativeSchema",
+      "source": "guilda-kernel/src/governance-workspace/initiatives/initiative.ts",
+      "nodesWithCustomRefinements": 2,
+      "sha256": "db838eff44ba7f1fac6df9f40d7a744fedb1b703ea77238cb7b526ae3c73fe15"
+    },
+    {
+      "file": "triage.schema.json",
+      "symbol": "WorkTriageSchema",
+      "source": "guilda-kernel/src/governance-workspace/initiatives/triage.ts",
+      "nodesWithCustomRefinements": 3,
+      "sha256": "dba0bcc015a2ec14520e9b21dab6afb0fc86ba0bcb30463af1fe0abc2f4aa668"
+    },
+    {
+      "file": "activation-decision.schema.json",
+      "symbol": "ActivateIntentDecisionRecordSchema",
+      "source": "guilda-kernel/src/core/decision-record.ts",
+      "nodesWithCustomRefinements": 1,
+      "sha256": "1dcfb69697af64993125695b33022d19c729ffdf308d0d45ae1534c347dc4c62"
+    },
+    {
+      "file": "intent.schema.json",
+      "symbol": "IntentSchema",
+      "source": "guilda-kernel/src/governance-workspace/intents/intent.ts",
+      "nodesWithCustomRefinements": 2,
+      "sha256": "337178a1685d143afb6f5451a2f46113bac39891d6eea2967caec9158bbe8cc9"
+    },
+    {
+      "file": "breakdown.schema.json",
+      "symbol": "BreakdownSchema",
+      "source": "guilda-kernel/src/governance-workspace/intents/breakdown.ts",
+      "nodesWithCustomRefinements": 6,
+      "sha256": "3cf4721b20373c8de71d9c23c86e92f6f94895d6eef590b6a3d825cd8f0e4b1a"
+    },
+    {
+      "file": "work-brief.schema.json",
+      "symbol": "WorkBriefSchema",
+      "source": "guilda-kernel/src/governance-root/work/brief.ts",
+      "nodesWithCustomRefinements": 1,
+      "sha256": "b368ca14d16f1148aa82247978667fa315096d055db31891940535afeb1ea687"
+    },
+    {
+      "file": "work-state.schema.json",
+      "symbol": "WorkStateSchema",
+      "source": "guilda-kernel/src/governance-root/work/state.ts",
+      "nodesWithCustomRefinements": 17,
+      "sha256": "e69dda00cede3c9c523dfb42c3b0da4867b0ac15e3af8e3c495f534bcb429853"
+    },
+    {
+      "file": "work-dispatches.schema.json",
+      "symbol": "DispatchRecordSchema",
+      "source": "guilda-kernel/src/governance-root/work/dispatch-record.ts",
+      "nodesWithCustomRefinements": 3,
+      "sha256": "1504dffc2a2ec4fd857c505b364480ce55354db338fb323757c3de0f6cae4fc2"
+    },
+    {
+      "file": "deliberation-ledger.schema.json",
+      "symbol": "DeliberationLedgerSchema",
+      "source": "guilda-kernel/src/governance-root/work/deliberation.ts",
+      "nodesWithCustomRefinements": 2,
+      "sha256": "302d6fb446f056d28f4f3738be890297c54b791282a3781c2837c298ae9a1a42"
+    },
+    {
+      "file": "delivery-verification.schema.json",
+      "symbol": "DeliveryVerificationSchema",
+      "source": "guilda-kernel/src/governance-workspace/results/verification.ts",
+      "nodesWithCustomRefinements": 1,
+      "sha256": "87fca61a64920f81f649c5e5cb7c0453dca883dbffd7394b1f29446687fd8da8"
+    },
+    {
+      "file": "outcome.schema.json",
+      "symbol": "OutcomeSchema",
+      "source": "guilda-kernel/src/governance-workspace/results/outcome.ts",
+      "nodesWithCustomRefinements": 6,
+      "sha256": "b89aead238ac2a73711a9b4aaf5858caddd0ad7701faad90dfc372d82174d56a"
+    },
+    {
+      "file": "outcome-verdict.schema.json",
+      "symbol": "OutcomeVerdictSchema",
+      "source": "guilda-kernel/src/governance-workspace/results/verdict.ts",
+      "nodesWithCustomRefinements": 0,
+      "sha256": "63a606c87659e999164bf43c74b23ff414a62849fce0d638f7c0fa6fd588134c"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "guilda-kernel/src/core/decision-record.ts",
+      "blob": "3b4906d0be67be90e59f816498e08325e49467dc"
+    },
+    {
+      "path": "guilda-kernel/src/core/governed-ref.ts",
+      "blob": "8bb79135c6d72263b4d6d8a2bc7cf5bfc4366f92"
+    },
+    {
+      "path": "guilda-kernel/src/core/normalized-text.ts",
+      "blob": "db6c54ab0021e7dd1a563f935ed2e9fe9b17617c"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/registry/commons.ts",
+      "blob": "956af15a8a9164008176b818feb2173b24ce42d2"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/brief.ts",
+      "blob": "02c98f037405b8a470435b22ae3854b75ea4d854"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/deliberation.ts",
+      "blob": "daf86602ad6b73e4505e54e134c451b1b2dd51ca"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/dispatch-record.ts",
+      "blob": "5348132705a1bde0d46d7726ea69559e9045b0fb"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/judgment-target.ts",
+      "blob": "e01587eaeb1eb5308200786297526320f0c14299"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/locale.ts",
+      "blob": "a3a0cb1204b0e5d9f7d07529a4780c3934b5182b"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/review-execution.ts",
+      "blob": "c888e87ee656b4ce7048ebc8a738ee523ed4a856"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/state.ts",
+      "blob": "7430157f4468bf2edd9a8563f7a86c88e585d3bf"
+    },
+    {
+      "path": "guilda-kernel/src/governance-root/work/work-continuation.ts",
+      "blob": "baac35614f5558c32367497896351aea20153f86"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/authority/revisioned-record.ts",
+      "blob": "7e452748c789498d62f5ca6fdb4f8461813012ec"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/business/metric.ts",
+      "blob": "70c4382d83eb07546f2b33ad4d11019843036385"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/business/objective.ts",
+      "blob": "aa28f4d0860d2e9b63d3ea7ebb517adf02c8a7d0"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/business/target.ts",
+      "blob": "6da27860fde9af709b189bde5cafa8b2d8638cb4"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/business/thesis.ts",
+      "blob": "a665d4c4b4363d33e97df0d5cfd3ba5010a7cc28"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/initiatives/initiative.ts",
+      "blob": "d53f2c720c194986dad73b79274c24263bfbc258"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/initiatives/triage.ts",
+      "blob": "f403d19d02780705cb7d9144ae76b9ebfbb47ef6"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/intents/breakdown.ts",
+      "blob": "948adf56cfeaa11a4261986aaca51f823832a7f3"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/intents/intent.ts",
+      "blob": "a744d24960d23b7ec4694091da3f92ad57d6bad9"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/references/governed-ref.ts",
+      "blob": "e2f2d717dc3fbe45463f9a82a8738d88ce265657"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/results/outcome-reference.ts",
+      "blob": "090fcbc9bf2a05d522b148b7a3feecdef99c4982"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/results/outcome.ts",
+      "blob": "d8ddaef9cfc02c6f6e685ebb5d2d347d785caad4"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/results/verdict.ts",
+      "blob": "d45ab8fc2be40d74e9d1d175b685194664a8ef45"
+    },
+    {
+      "path": "guilda-kernel/src/governance-workspace/results/verification.ts",
+      "blob": "2b9c09431c0cd7d8e0b808cec669ae5e3b73b34f"
+    }
+  ]
+}

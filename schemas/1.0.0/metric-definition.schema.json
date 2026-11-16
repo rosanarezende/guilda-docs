@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "metric-definition"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "guilda.governance/v1"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "count",
+            "percentage",
+            "ratio",
+            "duration-ms"
+          ]
+        },
+        "source-type": {
+          "type": "string",
+          "enum": [
+            "repository-scan",
+            "telemetry",
+            "manual-audit"
+          ]
+        },
+        "aggregation-type": {
+          "type": "string",
+          "enum": [
+            "sum",
+            "average",
+            "max",
+            "latest"
+          ]
+        },
+        "measurement-procedure": {
+          "type": "string",
+          "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+        },
+        "metric-owner": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "unit",
+        "source-type",
+        "aggregation-type",
+        "measurement-procedure",
+        "metric-owner"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "artifact",
+    "schemaVersion",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/metric-definition.schema.json",
+  "title": "metric-definition",
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto."
+}

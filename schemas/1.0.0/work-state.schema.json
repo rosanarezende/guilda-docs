@@ -1,0 +1,1078 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "artifact": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "work": {
+      "$ref": "#/$defs/__schema1"
+    },
+    "revision": {
+      "$ref": "#/$defs/__schema2"
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/__schema3"
+    },
+    "topology": {
+      "$ref": "#/$defs/__schema4"
+    },
+    "relations": {
+      "$ref": "#/$defs/__schema32"
+    },
+    "dispatch-log": {
+      "$ref": "#/$defs/__schema33"
+    }
+  },
+  "required": [
+    "artifact",
+    "work",
+    "revision",
+    "lifecycle",
+    "topology",
+    "relations"
+  ],
+  "additionalProperties": false,
+  "$comment": "MIT. Exportação estrutural dos registros canônicos. Refinamentos sem representação JSON Schema e integridade entre arquivos: semantics.md. Não valida autoridade nem executa o produto.",
+  "$defs": {
+    "__schema0": {
+      "type": "string",
+      "const": "work-state"
+    },
+    "__schema1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "delivery",
+            "exploration",
+            "maintenance",
+            "experiment",
+            "incident"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "__schema2": {
+      "type": "number"
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "active",
+            "done"
+          ]
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "shaping",
+            "scoping",
+            "designing",
+            "ready",
+            "executing",
+            "verifying",
+            "running",
+            "evaluating",
+            "declared",
+            "mitigating",
+            "stabilized",
+            "resolving",
+            "reviewing",
+            "closed"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "started-at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closed-at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "migration-record": {
+          "type": "object",
+          "properties": {
+            "at": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "at",
+            "note"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "status",
+        "phase",
+        "owner"
+      ],
+      "additionalProperties": false
+    },
+    "__schema4": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "object",
+          "properties": {
+            "node": {
+              "type": "string"
+            },
+            "checkpoint": {
+              "type": "string"
+            },
+            "task": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "node",
+            "checkpoint"
+          ],
+          "additionalProperties": false
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "investigation",
+                  "deliberation",
+                  "implementation",
+                  "verification",
+                  "propagation",
+                  "human-gate",
+                  "research",
+                  "contract-design",
+                  "execution",
+                  "maintenance",
+                  "handoff"
+                ]
+              },
+              "objective": {
+                "type": "string"
+              },
+              "progress": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "active",
+                  "concluded",
+                  "blocked",
+                  "abandoned"
+                ]
+              },
+              "sequence": {
+                "type": "number"
+              },
+              "terminal": {
+                "type": "boolean"
+              },
+              "depends-on": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "continued-in": {
+                "type": "object",
+                "properties": {
+                  "continued-in": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "declared-at": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "continued-in",
+                  "rationale",
+                  "declared-at"
+                ],
+                "additionalProperties": false
+              },
+              "surfaces": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string"
+                    },
+                    "materializes": {
+                      "type": "string"
+                    },
+                    "continuation-of": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "landing": {
+                      "type": "object",
+                      "properties": {
+                        "mode": {
+                          "type": "string",
+                          "enum": [
+                            "unit",
+                            "sequential"
+                          ]
+                        },
+                        "landed-via": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "mode"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "platform-evidence": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind",
+                    "materializes",
+                    "landing",
+                    "platform-evidence"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "checkpoints": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/$defs/__schema5"
+                    },
+                    "objective": {
+                      "$ref": "#/$defs/__schema6"
+                    },
+                    "method-law": {
+                      "$ref": "#/$defs/__schema7"
+                    },
+                    "progress": {
+                      "$ref": "#/$defs/__schema8"
+                    },
+                    "readiness": {
+                      "$ref": "#/$defs/__schema9"
+                    },
+                    "review-plan": {
+                      "$ref": "#/$defs/__schema10"
+                    },
+                    "review-execution-ref": {
+                      "$ref": "#/$defs/__schema16"
+                    },
+                    "review-execution": {
+                      "$ref": "#/$defs/__schema19"
+                    },
+                    "tasks": {
+                      "$ref": "#/$defs/__schema28"
+                    },
+                    "evidence": {
+                      "$ref": "#/$defs/__schema30"
+                    },
+                    "required-evidence": {
+                      "$ref": "#/$defs/__schema31"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "objective",
+                    "method-law",
+                    "progress",
+                    "readiness"
+                  ],
+                  "additionalProperties": false,
+                  "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                }
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "objective",
+              "progress",
+              "sequence",
+              "terminal",
+              "depends-on",
+              "checkpoints"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "cursor",
+        "nodes"
+      ],
+      "additionalProperties": false
+    },
+    "__schema5": {
+      "type": "string"
+    },
+    "__schema6": {
+      "type": "string"
+    },
+    "__schema7": {
+      "type": "string"
+    },
+    "__schema8": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "active",
+        "concluded",
+        "blocked"
+      ]
+    },
+    "__schema9": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "ready",
+        "satisfied"
+      ]
+    },
+    "__schema10": {
+      "anyOf": [
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "system-recommendation": {
+                    "$ref": "#/$defs/__schema11"
+                  },
+                  "human-decision": {
+                    "$ref": "#/$defs/__schema12"
+                  },
+                  "actor": {
+                    "$ref": "#/$defs/__schema13"
+                  },
+                  "reason": {
+                    "$ref": "#/$defs/__schema14"
+                  },
+                  "dispensation": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "candidate-id": {
+                            "$ref": "#/$defs/__schema15"
+                          },
+                          "actor": {
+                            "type": "string",
+                            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                          }
+                        },
+                        "required": [
+                          "candidate-id",
+                          "actor",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "revalidation": {
+                    "type": "object",
+                    "properties": {
+                      "decision": {
+                        "type": "string"
+                      },
+                      "analyzed-candidate-id": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/$defs/__schema15"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "actor": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "reason": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "decision"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "system-recommendation",
+                  "human-decision",
+                  "actor",
+                  "reason",
+                  "revalidation"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "system-recommendation": {
+                    "$ref": "#/$defs/__schema11"
+                  },
+                  "human-decision": {
+                    "$ref": "#/$defs/__schema12"
+                  },
+                  "actor": {
+                    "$ref": "#/$defs/__schema13"
+                  },
+                  "reason": {
+                    "$ref": "#/$defs/__schema14"
+                  },
+                  "dispensation": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "head": {
+                            "type": "string",
+                            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                          },
+                          "actor": {
+                            "type": "string",
+                            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                          },
+                          "reason": {
+                            "type": "string",
+                            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+                          }
+                        },
+                        "required": [
+                          "head",
+                          "actor",
+                          "reason"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "revalidation": {
+                    "type": "object",
+                    "properties": {
+                      "decision": {
+                        "type": "string"
+                      },
+                      "analyzed-revision": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              }
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "actor": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "reason": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "decision"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "system-recommendation",
+                  "human-decision",
+                  "actor",
+                  "reason",
+                  "revalidation"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema11": {
+      "type": "string"
+    },
+    "__schema12": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "required",
+        "accepted",
+        "approved",
+        "waived"
+      ]
+    },
+    "__schema13": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "__schema14": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "__schema15": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "__schema16": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/__schema17"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema17": {
+      "$ref": "#/$defs/__schema18",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema18": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema19": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "candidate": {
+              "$ref": "#/$defs/__schema20"
+            },
+            "authorization": {
+              "$ref": "#/$defs/__schema21"
+            },
+            "closure-criteria": {
+              "$ref": "#/$defs/__schema22"
+            },
+            "revalidation-requires-new-authorization": {
+              "$ref": "#/$defs/__schema24"
+            },
+            "lanes": {
+              "$ref": "#/$defs/__schema25"
+            }
+          },
+          "required": [
+            "candidate",
+            "authorization",
+            "closure-criteria",
+            "revalidation-requires-new-authorization",
+            "lanes"
+          ],
+          "additionalProperties": false,
+          "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema20": {
+      "type": "object",
+      "properties": {
+        "candidate-id": {
+          "$ref": "#/$defs/__schema15"
+        },
+        "manifest-ref": {
+          "$ref": "#/$defs/__schema17"
+        },
+        "manifest-fingerprint": {
+          "$ref": "#/$defs/__schema15"
+        }
+      },
+      "required": [
+        "candidate-id",
+        "manifest-ref",
+        "manifest-fingerprint"
+      ],
+      "additionalProperties": false,
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema21": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/__schema18"
+        },
+        "decision-ref": {
+          "$ref": "#/$defs/__schema18"
+        },
+        "at": {
+          "$ref": "#/$defs/__schema18"
+        }
+      },
+      "required": [
+        "actor",
+        "decision-ref",
+        "at"
+      ],
+      "additionalProperties": false
+    },
+    "__schema22": {
+      "type": "object",
+      "properties": {
+        "blocking": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema23"
+          }
+        },
+        "debt-policy": {
+          "$ref": "#/$defs/__schema23"
+        }
+      },
+      "required": [
+        "blocking",
+        "debt-policy"
+      ],
+      "additionalProperties": false
+    },
+    "__schema23": {
+      "type": "string",
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema24": {
+      "type": "boolean",
+      "const": true
+    },
+    "__schema25": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema26"
+      }
+    },
+    "__schema26": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/__schema18"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "objective": {
+          "$ref": "#/$defs/__schema23"
+        },
+        "attack-vectors": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema23"
+          }
+        },
+        "reading-order": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema27"
+          }
+        },
+        "out-of-scope": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema23"
+          }
+        },
+        "limitations": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema23"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "active",
+            "satisfied",
+            "invalid"
+          ]
+        },
+        "prompt-ref": {
+          "$ref": "#/$defs/__schema17"
+        },
+        "artifact-ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/__schema17"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "sequence",
+        "objective",
+        "attack-vectors",
+        "reading-order",
+        "out-of-scope",
+        "limitations",
+        "status",
+        "prompt-ref",
+        "artifact-ref"
+      ],
+      "additionalProperties": false
+    },
+    "__schema27": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/__schema17"
+        },
+        "why": {
+          "$ref": "#/$defs/__schema23"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "current",
+            "context",
+            "superseded"
+          ]
+        }
+      },
+      "required": [
+        "path",
+        "why",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "__schema28": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "active",
+              "done",
+              "blocked",
+              "abandoned"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "notes": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/__schema29"
+            },
+            "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+          },
+          "waiting-on": {
+            "type": "object",
+            "properties": {
+              "what": {
+                "type": "string",
+                "minLength": 1
+              },
+              "who": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "what",
+              "who"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "__schema29": {
+      "type": "object",
+      "properties": {
+        "at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2})?$",
+              "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+        }
+      },
+      "required": [
+        "at",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "__schema30": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "__schema31": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "__schema32": {
+      "type": "object",
+      "properties": {
+        "blocked-by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "blocked-by"
+      ],
+      "additionalProperties": false
+    },
+    "__schema33": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/__schema34"
+          },
+          "at": {
+            "$ref": "#/$defs/__schema35"
+          },
+          "by": {
+            "$ref": "#/$defs/__schema36"
+          },
+          "subject": {
+            "$ref": "#/$defs/__schema37"
+          },
+          "choice": {
+            "$ref": "#/$defs/__schema38"
+          },
+          "rationale": {
+            "$ref": "#/$defs/__schema39"
+          },
+          "not-authorized": {
+            "$ref": "#/$defs/__schema40"
+          },
+          "resolves": {
+            "$ref": "#/$defs/__schema42"
+          }
+        },
+        "required": [
+          "id",
+          "at",
+          "by",
+          "subject",
+          "choice",
+          "not-authorized"
+        ],
+        "additionalProperties": false,
+        "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+      }
+    },
+    "__schema34": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}-[a-z0-9][a-z0-9-]*$"
+    },
+    "__schema35": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2})?$"
+    },
+    "__schema36": {
+      "type": "string",
+      "minLength": 1,
+      "$comment": "Este ponto possui refinamentos canônicos sem equivalente automático em JSON Schema. Consulte semantics.md; aceitação estrutural não prova validade semântica."
+    },
+    "__schema37": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema38": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema39": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "__schema40": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/__schema41"
+      }
+    },
+    "__schema41": {
+      "type": "string",
+      "minLength": 1
+    },
+    "__schema42": {
+      "type": "object",
+      "properties": {
+        "node": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checkpoint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/rosanarezende/guilda-docs/main/schemas/1.0.0/work-state.schema.json",
+  "title": "work-state"
+}

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/work-dispatches.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: work-dispatches
+subject: work:delivery/medicao-primeiro-valor
+dispatches:
+  - id: 2026-11-15-conferir-exercicio
+    at: 2026-11-15
+    by: pessoa-responsavel-acme
+    subject: Conferência do exercício documental.
+    choice: Conferir os documentos fictícios e manter explícitas as limitações.
+    not-authorized:
+      - Não aprova entregas reais nem altera registros privados.
+    resolves:
+      node: conferir
+      checkpoint: prova

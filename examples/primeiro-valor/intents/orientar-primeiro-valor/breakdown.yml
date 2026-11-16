@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../../../schemas/1.0.0/breakdown.schema.json
+# Exemplo inteiramente fictício; não é um registro oficial de operação.
+artifact: breakdown-revision
+schemaVersion: guilda.governance/v1
+metadata:
+  intent-ref: intent.yml
+  revision: 1
+  applied-at: 2026-10-22
+  applied-via: intent.apply-breakdown
+exit-criteria:
+  - id: percurso-conferivel
+    description: Percurso e critérios de primeiro valor conferíveis.
+    work-refs:
+      - governance-root: acme-produto
+        work-id: orientacao-inicial
+    delivery:
+      kind: contained
+      rationale: A entrega pertence à fonte fictícia acme-produto.
+  - id: medicao-conferivel
+    description: Cálculo reproduzível com fonte, janela e limitações explícitas.
+    work-refs:
+      - governance-root: acme-produto
+        work-id: medicao-primeiro-valor
+    delivery:
+      kind: contained
+      rationale: Medição documental no mesmo cenário.
+execution-phases:
+  - id: orientar
+    order: 1
+    title: Preparar e conferir a orientação
+    criterion-refs:
+      - percurso-conferivel
+    completion:
+      mode: derived
+  - id: observar
+    order: 2
+    title: Observar e rever a aposta
+    criterion-refs:
+      - medicao-conferivel
+    completion:
+      mode: derived
+breaks-into:
+  works:
+    - id: orientacao-inicial
+      type: delivery
+      governance-root: acme-produto
+      objective: Oferecer orientação clara.
+      scope: Definição de primeiro valor e percurso ilustrativo.
+      phase-ref: orientar
+      depends-on: []
+      expected-outcomes:
+        - Percurso conferível.
+      acceptance-criteria:
+        - Primeiro valor definido e percurso documentado.
+      invariant-bindings: []
+    - id: medicao-primeiro-valor
+      type: delivery
+      governance-root: acme-produto
+      objective: Conservar a medição e suas limitações.
+      scope: Eventos fictícios, cálculo, resultado e revisão da aposta.
+      phase-ref: observar
+      depends-on:
+        - governance-root: acme-produto
+          work-id: orientacao-inicial
+      expected-outcomes:
+        - Resultado sintético reproduzível.
+      acceptance-criteria:
+        - Média reproduzida a partir do CSV e limitações explicitadas.
+      invariant-bindings: []

@@ -1,0 +1,35 @@
+Licença do conteúdo público do guilda-docs
+
+Copyright (c) 2026 Rosana Rezende, quanto aos direitos que detém.
+
+Salvo indicação específica em contrário, os textos, diagramas, ilustrações e
+exemplos documentais publicados em README.md, docs/, examples/ e assets/ são
+disponibilizados sob Creative Commons Atribuição 4.0 Internacional (CC BY 4.0).
+
+Texto integral da licença:
+https://creativecommons.org/licenses/by/4.0/legalcode.pt
+
+Resumo em português:
+https://creativecommons.org/licenses/by/4.0/deed.pt-br
+
+O licenciamento abrange exclusivamente o conteúdo público indicado acima.
+Não licencia o código-fonte privado, o motor de execução, o aplicativo desktop
+ou os serviços da Guilda, nem concede direitos sobre marcas. Esses elementos
+permanecem sujeitos a termos e licenciamento próprios.
+
+Os JSON Schemas, o manifesto de versão e o código do validador independente
+em schemas/ são disponibilizados sob MIT, conforme schemas/LICENSE, para
+interoperabilidade, leitura e auditoria dos registros. Essa licença também
+não abrange qualquer implementação privada do produto.
+
+A documentação explicativa em schemas/*.md e schemas/1.0.0/*.md integra o
+conteúdo documental sob CC BY 4.0. Os YAML, JSON, CSV e Markdown em examples/
+são exemplos documentais sintéticos, também sob CC BY 4.0.
+
+Conteúdo de terceiros identificado separadamente conserva os próprios termos.
+As dependências do validador conservam suas licenças. Arquivos de configuração
+e metadados de instalação na raiz são disponibilizados sob MIT.
+
+Crédito sugerido: "Guilda — Rosana Rezende", com link para
+https://github.com/rosanarezende/guilda-docs, referência à licença e indicação
+das alterações realizadas, quando houver.
